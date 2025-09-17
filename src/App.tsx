@@ -15,15 +15,28 @@ function App() {
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setScrollProgress(progress);
 
-      const about = document.getElementById("about");
-      if (about) {
-        const top = about.getBoundingClientRect().top;
-        setHideHeader(top <= 0);
+      // Hide header when scrolling starts on mobile, or hero image appears on desktop
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        // Hide header as soon as scrolling starts on mobile
+        setHideHeader(scrollTop > 0);
+      } else {
+        // Hide header when hero image appears on desktop
+        const heroImg = document.querySelector(".hero-img");
+        if (heroImg) {
+          const top = heroImg.getBoundingClientRect().top;
+          setHideHeader(top <= 0);
+        }
       }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   return (
