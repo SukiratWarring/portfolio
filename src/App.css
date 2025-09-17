@@ -272,6 +272,141 @@ section ul {
   transform: translateY(-1px);
 }
 
+/* Mobile responsive design */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  .nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+  
+  .nav .links {
+    gap: 0.5rem;
+  }
+  
+  .nav .links a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero {
+    padding: 0.75rem 0 1rem;
+  }
+  
+  .hero-img {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .hero-badge {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    right: -6px;
+    bottom: -6px;
+  }
+  
+  .hero-name {
+    font-size: 2.2em;
+  }
+  
+  .hero-title {
+    font-size: 0.9rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .card {
+    padding: 0.75rem;
+  }
+  
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.4rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .role {
+    margin: 1rem 0;
+    padding: 0.75rem;
+  }
+  
+  .role h2 {
+    font-size: 1.1em;
+  }
+  
+  .role-note {
+    font-size: 0.8em;
+  }
+  
+  .role .meta {
+    font-size: 0.85rem;
+  }
+  
+  .icon-links {
+    gap: 0.75rem;
+  }
+  
+  .icon-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .contact-tagline {
+    font-size: 0.9rem;
+  }
+  
+  .project-title-link {
+    gap: 0.25rem;
+  }
+  
+  .external-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: 1.8em;
+  }
+  
+  .hero-title {
+    font-size: 0.85rem;
+  }
+  
+  .nav .links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav .links a {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .role {
+    padding: 0.5rem;
+  }
+  
+  .role h2 {
+    font-size: 1em;
+  }
+  
+  .role ul li {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+}
+
 .cards .links {
   display: flex;
   gap: 0.6rem;
