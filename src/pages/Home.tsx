@@ -1,4 +1,5 @@
 import About from "./About";
+import Stats from "./Stats";
 import Projects from "./Projects";
 import Experience from "./Experience";
 import Contact from "./Contact";
@@ -27,6 +28,7 @@ export default function Home() {
       <section id="about">
         <About />
       </section>
+      <Stats />
       <section id="projects">
         <Projects />
       </section>
