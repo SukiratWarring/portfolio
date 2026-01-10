@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">About Me</h1>
-      <p className="mb-4">
-        I’m a <strong>Blockchain & Backend Engineer</strong> with 3.5+ years of
+    <section className="about-section">
+      <h1>About Me</h1>
+      <p>
+        I'm a <strong>Blockchain & Backend Engineer</strong> with 3.5+ years of
         experience designing and building decentralized systems and scalable
         backend services. My work spans multiple ecosystems including{" "}
         <strong>EVM (Ethereum, BSC)</strong>, <strong>TVM (Tron)</strong>,{" "}
@@ -12,7 +12,7 @@ export default function About() {
         microservices architecture, and full-stack dApp design — always with a
         strong focus on security, scalability, and performance.
       </p>
-      <ul className="list-disc pl-6 space-y-2">
+      <ul>
         <li>
           <strong>Smart Contracts:</strong> Solidity, Move, Anchor (Solana),
           Foundry, Hardhat, OpenZeppelin

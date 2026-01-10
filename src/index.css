@@ -18,6 +18,8 @@ html,
 body {
   overscroll-behavior-y: none;
   overscroll-behavior: none;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 a {
