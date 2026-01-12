@@ -18,8 +18,8 @@ const roles: Role[] = [
     description:
       "Leading development of next-generation DeFi protocols and cross-chain solutions. Contributing to open source projects and building innovative Web3 applications.",
     highlights: [
+      "Built Kromosom, an automated cryptocurrency trading platform leveraging machine learning for execution on Hyperliquid and Aster.",
       "Developed a meme token launchpad on Base and Katana using Solidity, ported equivalent functionality to Movement chain with Aptos Move.",
-      "Engineered a production-grade Aptos blockchain indexer for real-time analytics and scalable DeFi/gaming integrations.",
       "Built Solana-based copy trading and sniper bots leveraging websockets and pump.fun SDKs.",
     ],
   },
