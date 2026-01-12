@@ -1,9 +1,13 @@
+import { useYearsOfExperience } from "../utils/experience";
+
 export default function Stats() {
+  const yearsOfExperience = useYearsOfExperience();
+  
   const stats = [
     { label: "Projects", value: "10+" },
     { label: "Contracts", value: "50+" },
     { label: "TVL", value: "$10M+" },
-    { label: "Years", value: "3.5+" },
+    { label: "Years", value: yearsOfExperience },
   ];
 
   return (

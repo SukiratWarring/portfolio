@@ -1,9 +1,13 @@
+import { useYearsOfExperience } from "../utils/experience";
+
 export default function About() {
+  const yearsOfExperience = useYearsOfExperience();
+  
   return (
     <section className="about-section">
       <h1>About Me</h1>
       <p>
-        I'm a <strong>Blockchain & Backend Engineer</strong> with 3.5+ years of
+        I'm a <strong>Blockchain & Backend Engineer</strong> with {yearsOfExperience} years of
         experience designing and building decentralized systems and scalable
         backend services. My work spans multiple ecosystems including{" "}
         <strong>EVM (Ethereum, BSC)</strong>, <strong>TVM (Tron)</strong>,{" "}
