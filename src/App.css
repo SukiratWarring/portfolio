@@ -560,6 +560,12 @@ section ul {
   letter-spacing: 0.05em;
 }
 
+/* Contact section - add padding to prevent collision with separator line */
+#contact {
+  padding-top: 2rem;
+  margin-top: 0.5rem;
+}
+
 /* Contact icons */
 .icon-links {
   display: flex;
@@ -699,6 +705,12 @@ section ul {
   
   .contact-tagline {
     font-size: 0.9rem;
+  }
+
+  /* Contact section mobile spacing */
+  #contact {
+    padding-top: 1.5rem;
+    margin-top: 0.25rem;
   }
   
   .project-title-link {
@@ -956,6 +968,12 @@ section ul {
   .content section > h1 {
     font-size: 1.75em;
     margin-bottom: 1.25rem;
+  }
+
+  /* Contact section small mobile spacing */
+  #contact {
+    padding-top: 1.25rem;
+    margin-top: 0.25rem;
   }
 }
 
