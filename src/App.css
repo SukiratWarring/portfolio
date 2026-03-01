@@ -332,6 +332,37 @@
   margin-bottom: 3rem;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .hero.animate-on-scroll,
+  .about-section.animate-on-scroll,
+  .stats-section.animate-on-scroll,
+  .projects-section.animate-on-scroll,
+  .contact-section.animate-on-scroll,
+  .experience-header.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .hero.animate-on-scroll.visible,
+  .about-section.animate-on-scroll.visible,
+  .stats-section.animate-on-scroll.visible,
+  .projects-section.animate-on-scroll.visible,
+  .contact-section.animate-on-scroll.visible,
+  .experience-header.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .experience-entry.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .experience-entry.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .experience-label {
   font-size: 0.85rem;
   letter-spacing: 0.15em;

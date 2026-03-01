@@ -4,13 +4,21 @@ import Projects from "./Projects";
 import Experience from "./Experience";
 import Contact from "./Contact";
 import { useYearsOfExperience } from "../utils/experience";
+import { useInView } from "../hooks/useInView";
 
 export default function Home() {
   const yearsOfExperience = useYearsOfExperience();
-  
+  const { ref: heroRef, isInView: heroInView } = useInView<HTMLElement>({
+    threshold: 0.2,
+    rootMargin: "0px 0px 0px 0px",
+  });
+
   return (
     <div className="home">
-      <section className="hero">
+      <section
+        ref={heroRef}
+        className={`hero animate-on-scroll ${heroInView ? "visible" : ""}`}
+      >
         <span className="hero-img-wrap">
           <img
             className="hero-img"

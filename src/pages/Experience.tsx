@@ -1,3 +1,5 @@
+import { useInView } from "../hooks/useInView";
+
 type Role = {
   company: string;
   title: string;
@@ -66,10 +68,96 @@ const roles: Role[] = [
   },
 ];
 
+function ExperienceEntry({ r }: { r: Role }) {
+  const { ref, isInView } = useInView();
+
+  return (
+    <div
+      ref={ref}
+      className={`experience-entry animate-on-scroll ${isInView ? "visible" : ""}`}
+    >
+      <div className="timeline-marker"></div>
+      <div className="experience-entry-content">
+        <div className="experience-entry-left">
+          <h2 className="experience-job-title">{r.title}</h2>
+          <div className="experience-company">{r.company}</div>
+          <div className="experience-meta">
+            <div className="experience-meta-item">
+              <svg
+                className="experience-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>{r.period}</span>
+            </div>
+            <div className="experience-meta-item">
+              <svg
+                className="experience-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="10"
+                  r="3"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>{r.location}</span>
+            </div>
+          </div>
+        </div>
+        <div className="experience-entry-right">
+          {r.description && (
+            <p className="experience-description">{r.description}</p>
+          )}
+          <h3 className="experience-achievements-title">
+            Key Achievements:
+          </h3>
+          <ul className="experience-achievements">
+            {r.highlights.map((h) => (
+              <li key={h}>{h}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Experience() {
+  const { ref: headerRef, isInView: headerInView } = useInView();
+
   return (
     <section className="experience-section">
-      <div className="experience-header">
+      <div
+        ref={headerRef}
+        className={`experience-header animate-on-scroll ${headerInView ? "visible" : ""}`}
+      >
         <div className="experience-label">EXPERIENCE</div>
         <h1 className="experience-title">Professional Journey</h1>
         <p className="experience-subtitle">
@@ -78,77 +166,7 @@ export default function Experience() {
       </div>
       <div className="experience-timeline">
         {roles.map((r) => (
-          <div className="experience-entry" key={r.company + r.title}>
-            <div className="timeline-marker"></div>
-            <div className="experience-entry-content">
-              <div className="experience-entry-left">
-                <h2 className="experience-job-title">{r.title}</h2>
-                <div className="experience-company">{r.company}</div>
-                <div className="experience-meta">
-                  <div className="experience-meta-item">
-                    <svg
-                      className="experience-icon"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span>{r.period}</span>
-                  </div>
-                  <div className="experience-meta-item">
-                    <svg
-                      className="experience-icon"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <circle
-                        cx="12"
-                        cy="10"
-                        r="3"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    <span>{r.location}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="experience-entry-right">
-                {r.description && (
-                  <p className="experience-description">{r.description}</p>
-                )}
-                <h3 className="experience-achievements-title">
-                  Key Achievements:
-                </h3>
-                <ul className="experience-achievements">
-                  {r.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+          <ExperienceEntry key={r.company + r.title} r={r} />
         ))}
       </div>
     </section>

@@ -1,8 +1,10 @@
 import { useYearsOfExperience } from "../utils/experience";
+import { useInView } from "../hooks/useInView";
 
 export default function Stats() {
   const yearsOfExperience = useYearsOfExperience();
-  
+  const { ref, isInView } = useInView<HTMLElement>();
+
   const stats = [
     { label: "Projects", value: "10+" },
     { label: "Contracts", value: "50+" },
@@ -11,7 +13,10 @@ export default function Stats() {
   ];
 
   return (
-    <section className="stats-section">
+    <section
+      ref={ref}
+      className={`stats-section animate-on-scroll ${isInView ? "visible" : ""}`}
+    >
       <div className="stats-grid">
         {stats.map((stat) => (
           <div className="stat-card" key={stat.label}>

@@ -1,10 +1,15 @@
 import { useYearsOfExperience } from "../utils/experience";
+import { useInView } from "../hooks/useInView";
 
 export default function About() {
   const yearsOfExperience = useYearsOfExperience();
-  
+  const { ref, isInView } = useInView<HTMLElement>();
+
   return (
-    <section className="about-section">
+    <section
+      ref={ref}
+      className={`about-section animate-on-scroll ${isInView ? "visible" : ""}`}
+    >
       <h1>About Me</h1>
       <p>
         I'm a <strong>Blockchain & Backend Engineer</strong> with {yearsOfExperience} years of

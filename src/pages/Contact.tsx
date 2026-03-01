@@ -1,6 +1,13 @@
+import { useInView } from "../hooks/useInView";
+
 export default function Contact() {
+  const { ref, isInView } = useInView<HTMLElement>();
+
   return (
-    <section>
+    <section
+      ref={ref}
+      className={`contact-section animate-on-scroll ${isInView ? "visible" : ""}`}
+    >
       <h1>Contact</h1>
       <p className="contact-tagline">
         Let’s build something trustless, secure, and delightful.
