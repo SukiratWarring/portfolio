@@ -14,12 +14,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-  overscroll-behavior-y: none;
-  overscroll-behavior: none;
+html {
   overflow-x: hidden;
+  overflow-y: auto;
   width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  touch-action: pan-y;
 }
 
 a {
@@ -33,8 +39,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: #000000;
